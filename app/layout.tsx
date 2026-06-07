@@ -22,8 +22,8 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL("https://antigravity.studio"),
   title: {
-    default: "Antigravity — Diseño y desarrollo web premium",
-    template: "%s · Antigravity",
+    default: "CIMA Digital — Diseño y desarrollo web premium",
+    template: "%s · CIMA Digital",
   },
   description:
     "Estudio digital en Buenos Aires. Diseño UX/UI, desarrollo web, e-commerce, branding y SEO. Código propio, sin plantillas.",
@@ -37,20 +37,20 @@ export const metadata: Metadata = {
     "branding",
     "seo",
   ],
-  authors: [{ name: "Antigravity" }],
-  creator: "Antigravity",
+  authors: [{ name: "CIMA Digital" }],
+  creator: "CIMA Digital",
   openGraph: {
     type: "website",
     locale: "es_AR",
-    url: "https://antigravity.studio",
-    siteName: "Antigravity",
-    title: "Antigravity — Diseño y desarrollo web premium",
+    url: "https://CIMA Digital.studio",
+    siteName: "CIMA Digital",
+    title: "CIMA Digital — Diseño y desarrollo web premium",
     description:
       "Estudio digital en Buenos Aires. Diseño UX/UI, desarrollo web, e-commerce, branding y SEO.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Antigravity — Diseño y desarrollo web premium",
+    title: "CIMA Digital — Diseño y desarrollo web premium",
     description:
       "Estudio digital en Buenos Aires. Diseño UX/UI, desarrollo web, e-commerce, branding y SEO.",
   },
