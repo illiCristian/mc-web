@@ -22,7 +22,7 @@ export function CTA() {
             className="absolute -right-20 -top-20 w-72 h-72 rounded-full"
             style={{
               background:
-                "radial-gradient(circle, rgba(10,10,10,0.15) 0%, transparent 70%)",
+                "radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 70%)",
             }}
           />
           <div
@@ -30,7 +30,7 @@ export function CTA() {
             className="absolute -left-10 -bottom-10 w-64 h-64 rounded-full"
             style={{
               background:
-                "radial-gradient(circle, rgba(10,10,10,0.1) 0%, transparent 70%)",
+                "radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%)",
             }}
           />
 

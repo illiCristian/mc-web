@@ -64,7 +64,7 @@ Toda la paleta y las fuentes están definidas como CSS variables en `app/globals
 
 ```css
 @theme {
-  --color-accent: #ffffff;     /* Color de acento (monocromo blanco) */
+  --color-accent: #0a0a0a;     /* Color de acento (negro — fondo claro, texto oscuro) */
   --color-bg-primary: #0a0a0a; /* Fondo principal */
   --color-text-primary: #ffffff;
   /* ... */

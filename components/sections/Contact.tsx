@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -19,9 +19,17 @@ import {
 } from "@/lib/contact-schema";
 import { siteConfig } from "@/lib/site-config";
 import { AnimatedText } from "@/components/ui/AnimatedText";
+import { Select, type SelectOption } from "@/components/ui/Select";
 import { cn } from "@/lib/cn";
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
+
+/* Opciones del select derivadas del schema (single source of truth) */
+const projectTypeOptions: Array<SelectOption<ContactFormValues["projectType"]>> = (
+  Object.entries(projectTypeLabels) as Array<
+    [ContactFormValues["projectType"], string]
+  >
+).map(([value, label]) => ({ value, label }));
 
 export function Contact() {
   const [status, setStatus] = useState<FormStatus>("idle");
@@ -30,6 +38,7 @@ export function Contact() {
     register,
     handleSubmit,
     reset,
+    control,
     formState: { errors, isSubmitting },
   } = useForm<ContactFormValues>({
     resolver: zodResolver(contactSchema),
@@ -154,7 +163,7 @@ export function Contact() {
                   {errors.name && (
                     <span
                       id="name-error"
-                      className="text-xs text-red-400 flex items-center gap-1.5"
+                      className="text-xs text-red-600 flex items-center gap-1.5"
                       role="alert"
                     >
                       <AlertCircle className="w-3 h-3 shrink-0" />
@@ -186,7 +195,7 @@ export function Contact() {
                   {errors.email && (
                     <span
                       id="email-error"
-                      className="text-xs text-red-400 flex items-center gap-1.5"
+                      className="text-xs text-red-600 flex items-center gap-1.5"
                       role="alert"
                     >
                       <AlertCircle className="w-3 h-3 shrink-0" />
@@ -204,37 +213,28 @@ export function Contact() {
                 >
                   Tipo de proyecto
                 </label>
-                <select
-                  id="projectType"
-                  required
-                  aria-required="true"
-                  aria-invalid={!!errors.projectType}
-                  aria-describedby={
-                    errors.projectType ? "projectType-error" : undefined
-                  }
-                  className="w-full bg-transparent border-b border-[var(--color-border-medium)] py-2.5 text-[var(--color-text-primary)] focus:border-[var(--color-accent)] focus:outline-none transition-colors duration-200 appearance-none cursor-pointer"
-                  {...register("projectType")}
-                  defaultValue=""
-                >
-                  <option value="" disabled className="bg-[var(--color-bg-card)]">
-                    Seleccioná un servicio
-                  </option>
-                  {(Object.entries(projectTypeLabels) as Array<
-                    [ContactFormValues["projectType"], string]
-                  >).map(([value, label]) => (
-                    <option
-                      key={value}
-                      value={value}
-                      className="bg-[var(--color-bg-card)]"
-                    >
-                      {label}
-                    </option>
-                  ))}
-                </select>
+                <Controller
+                  name="projectType"
+                  control={control}
+                  render={({ field, fieldState }) => (
+                    <Select<ContactFormValues["projectType"]>
+                      id="projectType"
+                      value={field.value}
+                      onChange={field.onChange}
+                      onBlur={field.onBlur}
+                      options={projectTypeOptions}
+                      placeholder="Seleccioná un servicio"
+                      invalid={!!fieldState.error}
+                      describedBy={
+                        fieldState.error ? "projectType-error" : undefined
+                      }
+                    />
+                  )}
+                />
                 {errors.projectType && (
                   <span
                     id="projectType-error"
-                    className="text-xs text-red-400 flex items-center gap-1.5"
+                    className="text-xs text-red-600 flex items-center gap-1.5"
                     role="alert"
                   >
                     <AlertCircle className="w-3 h-3 shrink-0" />
@@ -267,7 +267,7 @@ export function Contact() {
                 {errors.message && (
                   <span
                     id="message-error"
-                    className="text-xs text-red-400 flex items-center gap-1.5"
+                    className="text-xs text-red-600 flex items-center gap-1.5"
                     role="alert"
                   >
                     <AlertCircle className="w-3 h-3 shrink-0" />
@@ -318,7 +318,7 @@ export function Contact() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="mt-6 flex items-center gap-2 px-4 py-3 bg-[#00C49A]/10 border border-[#00C49A]/30 rounded-sm text-[#00C49A] text-sm"
+                    className="mt-6 flex items-center gap-2 px-4 py-3 bg-emerald-500/10 border border-emerald-500/30 rounded-sm text-emerald-600 text-sm"
                     role="status"
                   >
                     <Check className="w-4 h-4 shrink-0" />
@@ -331,7 +331,7 @@ export function Contact() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="mt-6 flex items-center gap-2 px-4 py-3 bg-red-500/10 border border-red-500/30 rounded-sm text-red-400 text-sm"
+                    className="mt-6 flex items-center gap-2 px-4 py-3 bg-red-500/10 border border-red-500/30 rounded-sm text-red-600 text-sm"
                     role="alert"
                   >
                     <AlertCircle className="w-4 h-4 shrink-0" />

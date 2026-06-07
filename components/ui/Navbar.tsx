@@ -126,7 +126,7 @@ export function Navbar() {
         {/* CTA desktop (≥1024px) */}
         <a
           href="#contacto"
-          className="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium border border-white/30 text-[var(--color-text-primary)] rounded-sm transition-all duration-200 ease-out hover:bg-white hover:text-[var(--color-bg-primary)] hover:-translate-y-0.5 active:scale-[0.98]"
+          className="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium border border-[var(--color-text-primary)]/30 text-[var(--color-text-primary)] rounded-sm transition-all duration-200 ease-out hover:bg-[var(--color-text-primary)] hover:text-[var(--color-bg-primary)] hover:-translate-y-0.5 active:scale-[0.98]"
         >
           Hablemos
           <ArrowUpRight className="w-4 h-4" />

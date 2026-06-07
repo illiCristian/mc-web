@@ -26,7 +26,7 @@ export function Hero() {
         className="absolute inset-0 -z-10"
         style={{
           background:
-            "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255, 255, 255, 0.06) 0%, transparent 60%)",
+            "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(10, 10, 10, 0.04) 0%, transparent 60%)",
         }}
       />
 
@@ -85,7 +85,7 @@ export function Hero() {
             </a>
             <a
               href="#contacto"
-              className="inline-flex items-center gap-2 px-6 py-3.5 text-sm md:text-base font-medium border border-white/30 text-[var(--color-text-primary)] rounded-sm transition-all duration-200 ease-out hover:bg-white hover:text-[var(--color-bg-primary)] hover:-translate-y-0.5 active:scale-[0.98]"
+              className="inline-flex items-center gap-2 px-6 py-3.5 text-sm md:text-base font-medium border border-[var(--color-text-primary)]/30 text-[var(--color-text-primary)] rounded-sm transition-all duration-200 ease-out hover:bg-[var(--color-text-primary)] hover:text-[var(--color-bg-primary)] hover:-translate-y-0.5 active:scale-[0.98]"
             >
               Hablemos
               <ArrowUpRight className="w-4 h-4" />

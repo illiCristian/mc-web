@@ -12,7 +12,7 @@ export const contactSchema = z.object({
     .min(1, "El email es obligatorio")
     .email("Ingresá un email válido"),
   projectType: z.enum(
-    ["web", "ecommerce", "branding", "seo", "otro"],
+    ["web", "landing", "ecommerce", "branding", "seo", "otro"],
     { message: "Elegí un tipo de proyecto" },
   ),
   message: z
@@ -26,6 +26,7 @@ export type ContactFormValues = z.infer<typeof contactSchema>;
 /* Etiquetas legibles para el select */
 export const projectTypeLabels: Record<ContactFormValues["projectType"], string> = {
   web: "Sitio web institucional",
+  landing: "Landing page",
   ecommerce: "E-commerce",
   branding: "Branding",
   seo: "SEO / Posicionamiento",
