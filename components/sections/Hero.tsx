@@ -58,6 +58,7 @@ export function Hero() {
             delay={0.5}
             yOffset={32}
             duration={0.5}
+
           />
         </h1>
 

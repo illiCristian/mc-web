@@ -20,7 +20,7 @@ const services = [
       "Tiendas online con foco en conversión y experiencia de compra. Integraciones con medios de pago y logística.",
     items: [
       "Tiendas online a medida",
-      "Shopify, Tiendanube y headless",
+      "Gestión de catálogo y stock",
       "Medios de pago y envíos",
       "Estrategia de conversión",
     ],

@@ -101,7 +101,7 @@ export function AnimatedText({
         {tokens.map((token, i) => {
           if (token.match(/^\s+$/)) {
             return (
-              <span key={`s-${i}`} className="inline-block">
+              <span key={`s-${i}`} className="inline-block" style={{ whiteSpace: "pre-wrap" }}>
                 {token}
               </span>
             );
